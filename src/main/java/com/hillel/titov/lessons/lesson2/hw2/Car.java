@@ -1,4 +1,4 @@
-package lessons.lesson2.hw2;
+package com.hillel.titov.lessons.lesson2.hw2;
 
 public class Car {
     public void start() {
