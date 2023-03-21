@@ -36,15 +36,15 @@ public class Methods {
         List<String> uniqueWords = new ArrayList<>();
         for (int i = 0; i < words.size(); i++) {
             String wordFromList = words.get(i);
-            int count = 0;
+            int counter = 0;
             for (int j = 0; j < words.size(); j++) {
                 if (wordFromList.equals(words.get(j))) {
-                    count++;
+                    counter++;
                 }
             }
             if (!uniqueWords.contains(wordFromList)) {
                 uniqueWords.add(wordFromList);
-                System.out.format("%s: %d\n", wordFromList, count);
+                System.out.format("%s: %d\n", wordFromList, counter);
             }
         }
     }
@@ -55,15 +55,15 @@ public class Methods {
         List<WordOccurrence> wordOccurrences = new ArrayList<>();
         for (int i = 0; i < words.size(); i++) {
             String wordFromList = words.get(i);
-            int count = 0;
+            int counter = 0;
             for (int j = 0; j < words.size(); j++) {
                 if (wordFromList.equals(words.get(j))) {
-                    count++;
+                    counter++;
                 }
             }
             if (!uniqueWords.contains(wordFromList)) {
                 uniqueWords.add(wordFromList);
-                wordOccurrences.add(new WordOccurrence(wordFromList, count));
+                wordOccurrences.add(new WordOccurrence(wordFromList, counter));
             }
         }
         return wordOccurrences;
