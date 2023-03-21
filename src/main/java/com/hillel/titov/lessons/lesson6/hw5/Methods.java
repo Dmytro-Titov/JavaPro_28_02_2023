@@ -4,56 +4,68 @@ import java.util.*;
 
 public class Methods {
 
-    public static void countOccurrence(List<String> list, String word) {
+    public static void countOccurrence(List<String> words, String entryWord) {
         int count = 0;
-        for (String s : list) {
-            if (s.equals(word)) {
+        for (String word : words) {
+            if (word.equals(entryWord)) {
                 count++;
             }
         }
-        System.out.format("The list contains %d instance(s) of the word \"%s\"\n", count, word);
+        System.out.format("The list contains %d instance(s) of the word \"%s\"\n", count, entryWord);
     }
 
-    public static <T> List<T> toList(T[] array) {
-        List<T> result = new ArrayList<>();
-        Collections.addAll(result, array);
-        return result;
-    }
-
-    public static List<Integer> findUnique(List<Integer> list) {
-        Set<Integer> uniqueNumbers = new HashSet<>(list);
-        list.clear();
-        list.addAll(uniqueNumbers);
-        return list;
-    }
-
-    public static void calcOccurrence(List<String> list) {
-        Map<String, Integer> words = addOccurrences(list);
-        for (Map.Entry<String, Integer> entry : words.entrySet()) {
-            System.out.format("%s: %d\n", entry.getKey(), entry.getValue());
+    public static <T> List<T> toList(T[] dataForConversion) {
+        List<T> convertedData = new ArrayList<>();
+        for (T item : dataForConversion) {
+            convertedData.add(item);
         }
+        return convertedData;
     }
 
-
-    public static List<WordOccurrence> findOccurrence(List<String> list) {
-        Map<String, Integer> words = addOccurrences(list);
-        List<WordOccurrence> wordOccurrences = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : words.entrySet()) {
-            wordOccurrences.add(new WordOccurrence(entry.getKey(), entry.getValue()));
-        }
-        return wordOccurrences;
-    }
-
-    // The method below contains duplicate code and belongs to methods above only
-    private static Map<String, Integer> addOccurrences(List<String> list) {
-        Map<String, Integer> words = new HashMap<>();
-        for (String word : list) {
-            if (words.containsKey(word)) {
-                words.put(word, words.get(word) + 1);
-            } else {
-                words.put(word, 1);
+    public static List<Integer> findUnique(List<Integer> numbers) {
+        List<Integer> uniqueNumbers = new ArrayList<>();
+        for (Integer number : numbers) {
+            if (!uniqueNumbers.contains(number)) {
+                uniqueNumbers.add(number);
             }
         }
-        return words;
+        return uniqueNumbers;
+    }
+
+    public static void calcOccurrence(List<String> words) {
+        List<String> uniqueWords = new ArrayList<>();
+        for (int i = 0; i < words.size(); i++) {
+            String wordFromList = words.get(i);
+            int count = 0;
+            for (int j = 0; j < words.size(); j++) {
+                if (wordFromList.equals(words.get(j))) {
+                    count++;
+                }
+            }
+            if (!uniqueWords.contains(wordFromList)) {
+                uniqueWords.add(wordFromList);
+                System.out.format("%s: %d\n", wordFromList, count);
+            }
+        }
+    }
+
+
+    public static List<WordOccurrence> findOccurrence(List<String> words) {
+        List<String> uniqueWords = new ArrayList<>();
+        List<WordOccurrence> wordOccurrences = new ArrayList<>();
+        for (int i = 0; i < words.size(); i++) {
+            String wordFromList = words.get(i);
+            int count = 0;
+            for (int j = 0; j < words.size(); j++) {
+                if (wordFromList.equals(words.get(j))) {
+                    count++;
+                }
+            }
+            if (!uniqueWords.contains(wordFromList)) {
+                uniqueWords.add(wordFromList);
+                wordOccurrences.add(new WordOccurrence(wordFromList, count));
+            }
+        }
+        return wordOccurrences;
     }
 }
