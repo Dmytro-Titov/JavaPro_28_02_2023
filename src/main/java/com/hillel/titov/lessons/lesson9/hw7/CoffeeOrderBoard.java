@@ -18,8 +18,8 @@ public class CoffeeOrderBoard {
 
     public void deliver() {
         if (!orders.isEmpty()) {
-            Order nextOrder = orders.poll();
-            System.out.println(nextOrder);
+            Order next = orders.poll();
+            System.out.println(next);
         } else {
             System.out.println("No orders to be delivered");
         }
@@ -27,16 +27,16 @@ public class CoffeeOrderBoard {
     }
 
     public void deliver(int number) {
-        Order priorityOrder = null;
+        Order priority = null;
         for (Order order : orders) {
             if (order.getOrderNumber() == number) {
-                priorityOrder = order;
+                priority = order;
                 break;
             }
         }
-        if (priorityOrder != null) {
-            orders.remove(priorityOrder);
-            System.out.println(priorityOrder);
+        if (priority != null) {
+            orders.remove(priority);
+            System.out.println(priority);
         } else {
             System.out.println("This order doesn't exist");
         }
@@ -44,9 +44,9 @@ public class CoffeeOrderBoard {
 
     public void draw() {
         System.out.println("Num\t| Name");
-        PriorityQueue<Order> tmpQueue = new PriorityQueue<>(orders);
-        while (tmpQueue.peek() != null) {
-            System.out.println(tmpQueue.poll());
+        PriorityQueue<Order> copiedOrders = new PriorityQueue<>(orders);
+        while (copiedOrders.peek() != null) {
+            System.out.println(copiedOrders.poll());
         }
     }
 
