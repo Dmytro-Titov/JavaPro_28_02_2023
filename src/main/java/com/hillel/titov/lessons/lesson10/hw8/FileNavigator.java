@@ -27,8 +27,8 @@ public class FileNavigator {
 
     public List<FileData> filterBySize(int limitValue) {
         List<FileData> filteredFiles = new ArrayList<>();
-        for (List<FileData> fileLists : files.values()) {
-            for (FileData file : fileLists) {
+        for (List<FileData> filesValue : files.values()) {
+            for (FileData file : filesValue) {
                 if (file.getByteSize() <= limitValue) {
                     filteredFiles.add(file);
                 }
@@ -43,8 +43,8 @@ public class FileNavigator {
 
     public List<FileData> sortBySize() {
         List<FileData> sortedFiles = new ArrayList<>();
-        for (List<FileData> fileLists : files.values()) {
-            for (FileData file : fileLists) {
+        for (List<FileData> filesValue : files.values()) {
+            for (FileData file : filesValue) {
                 sortedFiles.add(file);
             }
         }
