@@ -12,8 +12,9 @@ public class FileNavigator {
             if (files.containsKey(targetPath)) {
                 files.get(targetPath).add(file);
             } else {
-                files.put(targetPath, new ArrayList<FileData>());
-                files.get(targetPath).add(file);
+                List<FileData> fileList = new ArrayList<>();
+                fileList.add(file);
+                files.put(targetPath, fileList);
             }
         }
     }
