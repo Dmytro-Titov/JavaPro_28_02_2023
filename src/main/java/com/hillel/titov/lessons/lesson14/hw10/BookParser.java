@@ -70,7 +70,7 @@ public class BookParser {
     }
 
     public static void writeStatistic() throws WriteStatisticException {
-        try (PrintWriter printWriter = new PrintWriter("src" + File.pathSeparator + "main" + File.pathSeparator + "java" + File.pathSeparator + bookName + "_statistic.txt")) {
+        try (PrintWriter printWriter = new PrintWriter("src" + File.separator + "main" + File.separator + "java" + File.separator + bookName + "_statistic.txt")) {
             for (Map.Entry<String, Integer> entry : tenMostPopularWordsAndOccurrences.entrySet()) {
                 printWriter.println(entry.getKey() + " -> " + entry.getValue());
             }
