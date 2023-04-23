@@ -86,6 +86,7 @@ public class BookParser {
         }
         System.out.format("There are %d unique words in the %s book\n", uniqueWordsCount, bookName);
         System.out.println();
+
     }
 }
 

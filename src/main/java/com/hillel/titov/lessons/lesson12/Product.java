@@ -7,6 +7,7 @@ public class Product {
     private double price;
     private boolean discount;
     private LocalDateTime date;
+
     private int id;
 
     public Product(String type, double price) {
